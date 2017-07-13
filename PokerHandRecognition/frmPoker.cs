@@ -201,11 +201,11 @@ namespace PokerHandRecognition
                 
             }
             //if there was no tie
-            if (drawnHands<=1)
+            if (drawnHands==1)
             {
                 txtResultMessage.Text = string.Format("Hand {0} wins", winnerIDs[0]);
             }
-            else 
+            else if (drawnHands>1)
             {
                 txtResultMessage.Text = "Hands ";
                 for (int i = 0; i < winnerIDs.Count-1; i++)
