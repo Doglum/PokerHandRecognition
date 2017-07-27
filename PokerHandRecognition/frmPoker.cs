@@ -12,7 +12,7 @@ namespace PokerHandRecognition
 {
     public partial class frmPoker : Form
     {
-        //~Global variables
+        //~classwide variables
         //the deck containing all cards
         List<Card> deck = NewDeck();
         //indexes in deck will correspond to indexes in cardButtons, so 10 of Clubs card has same index as 10C button
@@ -233,6 +233,27 @@ namespace PokerHandRecognition
             return deck;
         }
 
+        //event to reset all items:
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            //loops through hand related items and resets them
+            for (int i = 0; i < 8; i++)
+            {
+                displayHands[i].Items.Clear();
+                displayHands[i].Enabled = true;
+                hands[i].Clear();
+                results[i].Text = "";
+            }
+            //re-enables all card buttons
+            foreach (Button butt in cardButtons)
+            {
+                butt.Enabled = true;
+            }
+            //resets other variables
+            deck = NewDeck();
+            txtResultMessage.Text = "";
+            currentHandIndex = 0;
+        }
 
         /* Finds the value of the hand when added to the cards on the table at the final stage
          * of play: the turn. Values are as follows, from weakest to strongest:

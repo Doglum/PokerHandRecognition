@@ -107,6 +107,7 @@
             this.btn2D = new System.Windows.Forms.Button();
             this.btnAD = new System.Windows.Forms.Button();
             this.txtResultMessage = new System.Windows.Forms.TextBox();
+            this.btnReset = new System.Windows.Forms.Button();
             this.grpCardButtons.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -908,11 +909,22 @@
             this.txtResultMessage.Size = new System.Drawing.Size(246, 20);
             this.txtResultMessage.TabIndex = 78;
             // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(197, 417);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 79;
+            this.btnReset.Text = "RESET";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // frmPoker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(734, 462);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.txtResultMessage);
             this.Controls.Add(this.grpCardButtons);
             this.Controls.Add(this.btnEvaluate);
@@ -1029,6 +1041,7 @@
         private System.Windows.Forms.Button btn2D;
         private System.Windows.Forms.Button btnAD;
         private System.Windows.Forms.TextBox txtResultMessage;
+        private System.Windows.Forms.Button btnReset;
     }
 }
 
