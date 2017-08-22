@@ -241,6 +241,9 @@ namespace PokerHandRecognition
                 displayHands[i].Items.Clear();
                 displayHands[i].Enabled = true;
                 hands[i].Clear();
+            }
+            for (int i = 0; i < 8; i++)
+            {
                 results[i].Text = "";
             }
             //re-enables all card buttons
