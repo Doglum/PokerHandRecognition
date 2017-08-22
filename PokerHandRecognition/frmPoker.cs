@@ -44,6 +44,7 @@ namespace PokerHandRecognition
             results.Add(txtHand8Result);
 
             //adds listboxes to displayHands list
+            displayHands.Add(lstTableCards);
             displayHands.Add(lstHand1);
             displayHands.Add(lstHand2);
             displayHands.Add(lstHand3);
@@ -54,7 +55,7 @@ namespace PokerHandRecognition
             displayHands.Add(lstHand8);
 
             //adds empty hands to hands list
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 9; i++)
             {
                 hands.Add(new List<Card>());
             }
@@ -84,13 +85,13 @@ namespace PokerHandRecognition
             hands[currentHandIndex].Add(deck[buttonIndex]);
 
             //if the hand is full move on to the next one, disable listbox to show user it's full
-            if (displayHands[currentHandIndex].Items.Count==5)
+            if ((displayHands[currentHandIndex].Items.Count==5 && currentHandIndex==0) || (displayHands[currentHandIndex].Items.Count == 2 && currentHandIndex != 0))
             {
                 displayHands[currentHandIndex].Enabled = false;
                 currentHandIndex += 1;
             }
             //if the last hand is full, disable all card buttons
-            if (currentHandIndex>7)
+            if (currentHandIndex>8)
             {
                 foreach (Control button in cardButtons)
                 {
@@ -112,12 +113,10 @@ namespace PokerHandRecognition
             //retrieves valid hands and puts them in handsToEvaluate
             foreach (List<Card> hand in hands)
             {
-                if (hand.Count==5)
+                if (hand.Count==2)
                 {
-                    handsToEvaluate.Add(Find5CardRank(hand));
+                    handsToEvaluate.Add(FindBestCardRank(hand,hands[0]));
                 }
-                else
-                    break;
             }
 
             //says what kind of set each hand is
@@ -237,7 +236,7 @@ namespace PokerHandRecognition
         private void btnReset_Click(object sender, EventArgs e)
         {
             //loops through hand related items and resets them
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 9; i++)
             {
                 displayHands[i].Items.Clear();
                 displayHands[i].Enabled = true;
@@ -575,7 +574,75 @@ namespace PokerHandRecognition
             return rankHighCard;
         }
 
-        
+        //determines which of the possible 5 card hands is best
+        static int[] FindBestCardRank(List<Card> hand, List<Card> tableCards)
+        {
+            List<Card> allCards = new List<Card>(tableCards); //this and below line add hand and table cards together into one list
+            allCards.AddRange(new List<Card>(hand));
+            allCards = allCards.OrderBy(o => o.cardNum).ToList(); //sorts allCards in ascending order of cardNum
+            //a list of all 21 possible hands, memory ineffecient but may improve performance marginally
+            List<List<Card>> possibleHands = new List<List<Card>>()
+            {
+                new List<Card>{allCards[0],allCards[1],allCards[2],allCards[3],allCards[4]},
+                new List<Card>{allCards[0],allCards[1],allCards[2],allCards[3],allCards[5]},
+                new List<Card>{allCards[0],allCards[1],allCards[2],allCards[3],allCards[6]},
+                new List<Card>{allCards[0],allCards[1],allCards[2],allCards[4],allCards[5]},
+                new List<Card>{allCards[0],allCards[1],allCards[2],allCards[4],allCards[6]},
+                new List<Card>{allCards[0],allCards[1],allCards[2],allCards[5],allCards[6]},
+                new List<Card>{allCards[0],allCards[1],allCards[3],allCards[4],allCards[5]},
+                new List<Card>{allCards[0],allCards[1],allCards[3],allCards[4],allCards[6]},
+                new List<Card>{allCards[0],allCards[1],allCards[3],allCards[5],allCards[6]},
+                new List<Card>{allCards[0],allCards[1],allCards[4],allCards[5],allCards[6]},
+                new List<Card>{allCards[0],allCards[2],allCards[3],allCards[4],allCards[5]},
+                new List<Card>{allCards[0],allCards[2],allCards[3],allCards[4],allCards[6]},
+                new List<Card>{allCards[0],allCards[2],allCards[3],allCards[5],allCards[6]},
+                new List<Card>{allCards[0],allCards[2],allCards[4],allCards[5],allCards[6]},
+                new List<Card>{allCards[0],allCards[3],allCards[4],allCards[5],allCards[6]},
+                new List<Card>{allCards[1],allCards[2],allCards[3],allCards[4],allCards[5]},
+                new List<Card>{allCards[1],allCards[2],allCards[3],allCards[4],allCards[6]},
+                new List<Card>{allCards[1],allCards[2],allCards[3],allCards[5],allCards[6]},
+                new List<Card>{allCards[1],allCards[2],allCards[4],allCards[5],allCards[6]},
+                new List<Card>{allCards[1],allCards[3],allCards[4],allCards[5],allCards[6]},
+                new List<Card>{allCards[2],allCards[3],allCards[4],allCards[5],allCards[6]}
+            };
+            int[] bestValue = new int[6] { 0, 0, 0, 0, 0, 0 }; //to be filled with better values and then compared
+            int[] rank = new int[6];
+
+            //loop comparing each hand to see if it is better than the current best hand
+            foreach (List<Card> possibleHand in possibleHands)
+            {
+                rank = Find5CardRank(possibleHand);
+                if (rank[0] > bestValue[0])
+                    bestValue = rank;
+                else if (rank[0] == bestValue[0])
+                {
+                    if (rank[1] > bestValue[1])
+                        bestValue = rank;
+                    else if (rank[1] == bestValue[1])
+                    {
+                        if (rank[2] > bestValue[2])
+                            bestValue = rank;
+                        else if (rank[2] == bestValue[2])
+                        {
+                            if (rank[3] > bestValue[3])
+                                bestValue = rank;
+                            else if (rank[3] == bestValue[3])
+                            {
+                                if (rank[4] > bestValue[4])
+                                    bestValue = rank;
+                                else if (rank[4] == bestValue[4])
+                                {
+                                    if (rank[5] > bestValue[5])
+                                        bestValue = rank;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            return bestValue;
+        }
     }
 
     //an object that contains properties of cards, the suit, number and value

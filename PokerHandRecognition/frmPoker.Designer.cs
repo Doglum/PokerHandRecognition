@@ -108,21 +108,23 @@
             this.btnAD = new System.Windows.Forms.Button();
             this.txtResultMessage = new System.Windows.Forms.TextBox();
             this.btnReset = new System.Windows.Forms.Button();
+            this.lstTableCards = new System.Windows.Forms.ListBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.grpCardButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstHand1
             // 
             this.lstHand1.FormattingEnabled = true;
-            this.lstHand1.Location = new System.Drawing.Point(197, 33);
+            this.lstHand1.Location = new System.Drawing.Point(197, 216);
             this.lstHand1.Name = "lstHand1";
-            this.lstHand1.Size = new System.Drawing.Size(120, 134);
+            this.lstHand1.Size = new System.Drawing.Size(120, 43);
             this.lstHand1.TabIndex = 52;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(197, 14);
+            this.label1.Location = new System.Drawing.Point(197, 200);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 53;
@@ -131,7 +133,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(323, 14);
+            this.label2.Location = new System.Drawing.Point(323, 200);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 55;
@@ -140,15 +142,15 @@
             // lstHand2
             // 
             this.lstHand2.FormattingEnabled = true;
-            this.lstHand2.Location = new System.Drawing.Point(323, 33);
+            this.lstHand2.Location = new System.Drawing.Point(323, 216);
             this.lstHand2.Name = "lstHand2";
-            this.lstHand2.Size = new System.Drawing.Size(120, 134);
+            this.lstHand2.Size = new System.Drawing.Size(120, 43);
             this.lstHand2.TabIndex = 54;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(449, 14);
+            this.label3.Location = new System.Drawing.Point(449, 200);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 13);
             this.label3.TabIndex = 57;
@@ -157,15 +159,15 @@
             // lstHand3
             // 
             this.lstHand3.FormattingEnabled = true;
-            this.lstHand3.Location = new System.Drawing.Point(449, 33);
+            this.lstHand3.Location = new System.Drawing.Point(449, 216);
             this.lstHand3.Name = "lstHand3";
-            this.lstHand3.Size = new System.Drawing.Size(120, 134);
+            this.lstHand3.Size = new System.Drawing.Size(120, 43);
             this.lstHand3.TabIndex = 56;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(575, 14);
+            this.label4.Location = new System.Drawing.Point(575, 200);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 13);
             this.label4.TabIndex = 59;
@@ -174,15 +176,15 @@
             // lstHand4
             // 
             this.lstHand4.FormattingEnabled = true;
-            this.lstHand4.Location = new System.Drawing.Point(575, 33);
+            this.lstHand4.Location = new System.Drawing.Point(575, 216);
             this.lstHand4.Name = "lstHand4";
-            this.lstHand4.Size = new System.Drawing.Size(120, 134);
+            this.lstHand4.Size = new System.Drawing.Size(120, 43);
             this.lstHand4.TabIndex = 58;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(197, 197);
+            this.label5.Location = new System.Drawing.Point(197, 291);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 13);
             this.label5.TabIndex = 61;
@@ -191,15 +193,15 @@
             // lstHand5
             // 
             this.lstHand5.FormattingEnabled = true;
-            this.lstHand5.Location = new System.Drawing.Point(197, 216);
+            this.lstHand5.Location = new System.Drawing.Point(197, 307);
             this.lstHand5.Name = "lstHand5";
-            this.lstHand5.Size = new System.Drawing.Size(120, 134);
+            this.lstHand5.Size = new System.Drawing.Size(120, 43);
             this.lstHand5.TabIndex = 60;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(323, 197);
+            this.label6.Location = new System.Drawing.Point(323, 291);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(45, 13);
             this.label6.TabIndex = 63;
@@ -208,15 +210,15 @@
             // lstHand6
             // 
             this.lstHand6.FormattingEnabled = true;
-            this.lstHand6.Location = new System.Drawing.Point(323, 216);
+            this.lstHand6.Location = new System.Drawing.Point(323, 307);
             this.lstHand6.Name = "lstHand6";
-            this.lstHand6.Size = new System.Drawing.Size(120, 134);
+            this.lstHand6.Size = new System.Drawing.Size(120, 43);
             this.lstHand6.TabIndex = 62;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(449, 197);
+            this.label7.Location = new System.Drawing.Point(449, 291);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(45, 13);
             this.label7.TabIndex = 65;
@@ -225,15 +227,15 @@
             // lstHand7
             // 
             this.lstHand7.FormattingEnabled = true;
-            this.lstHand7.Location = new System.Drawing.Point(449, 216);
+            this.lstHand7.Location = new System.Drawing.Point(449, 307);
             this.lstHand7.Name = "lstHand7";
-            this.lstHand7.Size = new System.Drawing.Size(120, 134);
+            this.lstHand7.Size = new System.Drawing.Size(120, 43);
             this.lstHand7.TabIndex = 64;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(575, 197);
+            this.label8.Location = new System.Drawing.Point(575, 291);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 13);
             this.label8.TabIndex = 67;
@@ -242,14 +244,14 @@
             // lstHand8
             // 
             this.lstHand8.FormattingEnabled = true;
-            this.lstHand8.Location = new System.Drawing.Point(575, 216);
+            this.lstHand8.Location = new System.Drawing.Point(575, 307);
             this.lstHand8.Name = "lstHand8";
-            this.lstHand8.Size = new System.Drawing.Size(120, 134);
+            this.lstHand8.Size = new System.Drawing.Size(120, 43);
             this.lstHand8.TabIndex = 66;
             // 
             // txtHand1Result
             // 
-            this.txtHand1Result.Location = new System.Drawing.Point(197, 173);
+            this.txtHand1Result.Location = new System.Drawing.Point(197, 265);
             this.txtHand1Result.Name = "txtHand1Result";
             this.txtHand1Result.ReadOnly = true;
             this.txtHand1Result.Size = new System.Drawing.Size(120, 20);
@@ -257,7 +259,7 @@
             // 
             // txtHand2Result
             // 
-            this.txtHand2Result.Location = new System.Drawing.Point(323, 173);
+            this.txtHand2Result.Location = new System.Drawing.Point(323, 265);
             this.txtHand2Result.Name = "txtHand2Result";
             this.txtHand2Result.ReadOnly = true;
             this.txtHand2Result.Size = new System.Drawing.Size(120, 20);
@@ -265,7 +267,7 @@
             // 
             // txtHand3Result
             // 
-            this.txtHand3Result.Location = new System.Drawing.Point(449, 173);
+            this.txtHand3Result.Location = new System.Drawing.Point(449, 265);
             this.txtHand3Result.Name = "txtHand3Result";
             this.txtHand3Result.ReadOnly = true;
             this.txtHand3Result.Size = new System.Drawing.Size(120, 20);
@@ -273,7 +275,7 @@
             // 
             // txtHand4Result
             // 
-            this.txtHand4Result.Location = new System.Drawing.Point(575, 173);
+            this.txtHand4Result.Location = new System.Drawing.Point(575, 265);
             this.txtHand4Result.Name = "txtHand4Result";
             this.txtHand4Result.ReadOnly = true;
             this.txtHand4Result.Size = new System.Drawing.Size(120, 20);
@@ -919,11 +921,30 @@
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
+            // lstTableCards
+            // 
+            this.lstTableCards.FormattingEnabled = true;
+            this.lstTableCards.Location = new System.Drawing.Point(197, 36);
+            this.lstTableCards.Name = "lstTableCards";
+            this.lstTableCards.Size = new System.Drawing.Size(120, 160);
+            this.lstTableCards.TabIndex = 80;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(197, 20);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(67, 13);
+            this.label9.TabIndex = 81;
+            this.label9.Text = "Table Cards:";
+            // 
             // frmPoker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(734, 462);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.lstTableCards);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.txtResultMessage);
             this.Controls.Add(this.grpCardButtons);
@@ -1042,6 +1063,8 @@
         private System.Windows.Forms.Button btnAD;
         private System.Windows.Forms.TextBox txtResultMessage;
         private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.ListBox lstTableCards;
+        private System.Windows.Forms.Label label9;
     }
 }
 
